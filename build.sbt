@@ -1,4 +1,4 @@
-name := """spark-template"""
+name := """github-push-counter"""
 
 version := "0.0.1"
 
@@ -7,10 +7,10 @@ val sparkVersion = "2.1.0"
 
 // Change this to another test framework if you prefer
 libraryDependencies ++= Seq(
-  "org.apache.spark" %% "spark-core" % sparkVersion,
-  "org.apache.spark" %% "spark-streaming" % sparkVersion,
-  "org.apache.spark" %% "spark-sql" % sparkVersion,
-  "org.apache.spark" %% "spark-mllib" % sparkVersion,
+  "org.apache.spark" %% "spark-core" % sparkVersion % Provided ,
+  "org.apache.spark" %% "spark-streaming" % sparkVersion % Provided,
+  "org.apache.spark" %% "spark-sql" % sparkVersion % Provided,
+  "org.apache.spark" %% "spark-mllib" % sparkVersion % Provided,
   "org.scalatest" %% "scalatest" % "2.2.4" % Test
 )
 
