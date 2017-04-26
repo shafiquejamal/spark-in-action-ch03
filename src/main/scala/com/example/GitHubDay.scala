@@ -1,5 +1,7 @@
 package com.example
 
+import org.apache.spark.sql.SaveMode
+
 import scala.io.Source.fromFile
 
 object GitHubDay extends App {
@@ -40,7 +42,7 @@ object GitHubDay extends App {
   val isEmployee = spark.udf.register("isEmpUDF", isEmp)
   
   val filtered = ordered.filter(isEmployee($"login"))
-  filtered.write.format(args(3)).save(args(2))
+  filtered.write.mode(SaveMode.Overwrite).format(args(3)).save(args(2))
   
   spark.stop()
   
